@@ -10,6 +10,7 @@ const addShape = async (req, res, next) => {
 
   try {
     const result = await incomingShape.save();
+    console.log(req.body);
     res.json(result).status(200);
   } catch (e) {
     res.status(404).json({ message: e.message });

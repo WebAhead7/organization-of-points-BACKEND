@@ -1,11 +1,18 @@
 const mongoose = require("mongoose");
 const { Schema } = mongoose;
 
+const pointSchema = new Schema({
+  x: { type: Number, required: true },
+  y: { type: Number, required: true },
+});
+
+const lineSchema = new Schema({
+  point_1: { type: pointSchema, required: true },
+  point_2: { type: pointSchema, required: true },
+});
+
 const shapeSchema = new Schema({
-  point_x: { type: Number, required: true },
-  point_y: { type: Number, required: true },
-  line_x: { type: String, required: true },
-  line_y: { type: String, required: true },
+  lines: { type: [lineSchema], required: true },
 });
 
 const Shape = mongoose.model("Shape", shapeSchema);
