@@ -1,8 +1,10 @@
-const Shape = require("../db/shape");
+const {Shape} = require("../db/shape");
 
 const getShapes = async (req, res, next) => {
+
   try {
     const result = await Shape.find();
+   
     if (!result) {
       res.json({ message: "no shapes available" }).status(404);
     }

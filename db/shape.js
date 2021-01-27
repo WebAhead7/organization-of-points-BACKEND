@@ -17,4 +17,4 @@ const shapeSchema = new Schema({
 
 const Shape = mongoose.model("Shape", shapeSchema);
 
-module.exports = Shape;
+module.exports = {Shape, pointSchema, lineSchema };
